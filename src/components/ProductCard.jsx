@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function ProductCard({ product }) {
+  const productId = product.id ?? product._id;
   const primaryImage = product.thumbnail || product.images?.[0];
   const secondaryImage = product.images?.[1] || primaryImage;
   const discount = Math.round(product.discountPercentage || 0);
@@ -12,17 +13,19 @@ export default function ProductCard({ product }) {
     <div className="flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border border-gray-100/30 bg-gray-700 shadow-md">
       <Link
         className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-        href={`/products/${product.id}`}
+        href={`/products/${productId}`}
       >
         <img
           className="absolute top-0 right-0 h-full w-full object-cover"
           src={primaryImage}
           alt={product.title}
+          suppressHydrationWarning
         />
         <img
           className="absolute top-0 -right-96 h-full w-full object-cover"
           src={secondaryImage}
           alt={product.title}
+          suppressHydrationWarning
         />
       </Link>
       <div className="mt-4 px-5 pb-5">

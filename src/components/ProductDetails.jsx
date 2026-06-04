@@ -10,10 +10,7 @@ export default function ProductDetails({ product }) {
 
   return (
     <div className="m-auto flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border border-gray-100/30 bg-gray-700 shadow-md">
-      <Link
-        className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-        href={`/products/${product.id}`}
-      >
+      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
         <img
           className="absolute top-0 right-0 h-full w-full object-cover"
           src={primaryImage}
@@ -24,11 +21,9 @@ export default function ProductDetails({ product }) {
           src={secondaryImage}
           alt={product.title}
         />
-      </Link>
+      </div>
       <div className="mt-4 px-5 pb-5">
-        <Link href="#">
-          <h5 className="text-xl tracking-tight text-white">{product.title}</h5>
-        </Link>
+        <h5 className="text-xl tracking-tight text-white">{product.title}</h5>
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
             <span className="text-3xl font-bold text-white">
